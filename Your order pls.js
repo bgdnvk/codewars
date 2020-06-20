@@ -32,6 +32,11 @@ function order(words){
         // console.log("length of i is: "+splitArr[i].length);
         for(let j = 0; j < splitArr[i].length; j++){
             // console.log("inside JJJ: "+splitArr[i][j]);
+            /**
+             * could have pushed into a new arr w/
+             *      if(array[j].indexOf(i) >= 0) {
+                        sortedArray.push(array[j]);
+             */
             if((splitArr[i][j] >= 1) && (splitArr[i][j] <= 9)){
                 // console.log("inside IF LOOP: "+splitArr[i][j]);
                 const wordObj = new Object();
