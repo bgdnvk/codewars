@@ -12,11 +12,48 @@ list_squared(1, 250) --> [[1, 1], [42, 2500], [246, 84100]]
 list_squared(42, 250) --> [[42, 2500], [246, 84100]]
  */
 function listSquared(m, n) {
-    for(;m<=n; m++){
-
+    let resultArr = [];
+    for(;m<=n;m++){
+        let divisorSum = getSquaredDivisors(m);
+        if(isSquare(divisorSum)){
+            resultArr.push([m, divisorSum]);
+        }
     }
-}
-const fDivisor = function(x){
+    console.log(resultArr);
     
+    return resultArr;
 }
+
+const isSquare = (x) => {
+   return x > 0 && Math.sqrt(x)%1 === 0;
+}
+// console.log("issquare result "+isSquare(42));
+// console.log("issquare result "+isSquare(2500));
+
+const isDivisor = (n, divisor) =>{
+    return n > 0 && !(n%divisor);
+}
+// console.log(isDivisor(42,21));
+
+function getSquaredDivisors(m){
+    let divisibleNums = [];
+
+    for(let i = 1; i<=m;i++){
+        // console.log("i is: "+i);
+        
+        if(isDivisor(m,i)){
+            // console.log("inside i I is: "+i);
+            divisibleNums.push(i*i);
+        }
+    }
+    // console.log(divisibleNums);
+    let reduced_arr = divisibleNums.reduce((acc, curr) => acc+curr);
+
+    // console.log(reduced_arr);
+
+    
+    return reduced_arr;
+}
+
+
 listSquared(42, 250);
