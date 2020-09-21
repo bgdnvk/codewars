@@ -4,3 +4,7 @@ let arrProto = Array.prototype;
 arrProto.square = function() {
   return this.map( e => Math.pow(e, 2));
 }
+
+arrProto.cube = function(){
+    
+}
