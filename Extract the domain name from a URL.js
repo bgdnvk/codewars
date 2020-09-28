@@ -10,6 +10,7 @@ domainName("https://www.cnet.com") == "cnet"
  */
 function domainName(url){
     //https://stackoverflow.com/a/59897765/14356309
+    //https://regex101.com/r/pX5dL9/1
     return url.replace(/.+\/\/|www.|\..+/g, '')
   }
 
