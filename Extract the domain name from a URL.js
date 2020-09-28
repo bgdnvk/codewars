@@ -12,3 +12,13 @@ function domainName(url){
     //https://stackoverflow.com/a/59897765/14356309
     return url.replace(/.+\/\/|www.|\..+/g, '')
   }
+
+  /**
+   * 
+function domainName(url){
+  url = url.replace("https://", '');
+  url = url.replace("http://", '');
+  url = url.replace("www.", '');
+  return url.split('.')[0];
+};
+   */
