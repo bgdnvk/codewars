@@ -8,3 +8,7 @@ domainName("https://www.cnet.com") == "cnet"
 
 
  */
+function domainName(url){
+    //https://stackoverflow.com/a/59897765/14356309
+    return url.replace(/.+\/\/|www.|\..+/g, '')
+  }
