@@ -3,16 +3,14 @@
 function cache(func) {
     // do your magic here
     console.log(func)
-    let cache = {};
-    return (func) => {
-      if (func in cache){
-        console.log(cache)
-        return cache[func]
-      } else {
-        console.log(cache)
-        
-        cache[func] = func;
-        return func;
+    let db = {};
+    return (...args) => {
+      if(!db[args]){
+        console.log(...args)
+        return db[args] = func(...args)
       }
+      console.log(...args)
+      
+      return db[args];
     }
   }
