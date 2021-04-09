@@ -22,3 +22,4 @@ const isPrime = (n) => {
  };
 
 console.log(isPrime(25)); 
+//https://www.tutorialspoint.com/find-all-prime-factors-of-a-number-javascript
