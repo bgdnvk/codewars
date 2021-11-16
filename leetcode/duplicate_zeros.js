@@ -12,6 +12,7 @@
     }
 
     console.log(`popd arr: ${arr}`)
+    console.log(`indexes: ${indexes}`);
     if(indexes.length !== 0){
         // arr.splice(indexes[0], 0, 0)
 
@@ -40,4 +41,6 @@
 // duplicateZeros([1,0,2,3,0,4,5,0])
 // duplicateZeros([1,2,3])
 // duplicateZeros([0,1,7,6,0,2,0,7])
-duplicateZeros([0,1,7,6,0,2,0,0,0,7])
+// duplicateZeros([0,1,7,6,0,2,0,0,0,7])
+duplicateZeros([[0,4,1,0,0,8,0,0,3]])
+//expected [0,0,4,1,0,0,0,0,8]
