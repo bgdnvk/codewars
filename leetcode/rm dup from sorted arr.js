@@ -9,8 +9,11 @@
     // return nums.length
     // doesn't work cuz it has to be in place
     for (let i = 0; i < nums.length; i++) {
+        //check if the next element is the same
         if (nums[i] === nums[i + 1]) {
+            //if it is, remove it
             nums.splice(i, 1)
+            //and move the index back one
             i--
         }
     }
