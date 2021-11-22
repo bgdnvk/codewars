@@ -22,3 +22,12 @@
 
 removeDuplicates([1,1,2])
 removeDuplicates([0,0,1,1,1,2,2,3,3,4])
+
+// const removeDuplicates = (nums) => {
+//     nums = [...new Set(nums)];
+// }
+// const numbers = [2,3,4,4,2,3,3,4,4,5,5,6,6,7,5,32,3,4,5]
+// removeDuplicates(numbers)
+// //output
+// //[2, 3, 4, 5, 6, 7, 32]
+
