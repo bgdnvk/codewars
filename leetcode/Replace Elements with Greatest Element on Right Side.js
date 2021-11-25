@@ -13,7 +13,9 @@
                 arr[i] = arr[j];
             }
         }
+        console.log(arr);
     }
+    arr[arr.length-1] = -1;
     return arr;
 };
 console.log(
