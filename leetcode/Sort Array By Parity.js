@@ -23,5 +23,6 @@
         }
     }
     console.log(nums);
+    return nums;
 };
 sortArrayByParity([3,1,2,4]);
