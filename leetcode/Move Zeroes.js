@@ -4,18 +4,27 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
  var moveZeroes = function(nums) {
+     console.log(nums);
+     //edge case in case arr is empty
      if (nums.length === 0) return
-     let zeroPointer = 0, j = 0
+     //make two pointers
+     let positiveEleTracker = 0, j = 0
+     //loop through array finding positive elements and filling the zeroes
      while (j < nums.length) {
          if (nums[j] !== 0) {
-             nums[zeroPointer] = nums[j]
-             zeroPointer++
+             //once we find a positive element swap it and keep count of positive elements
+             nums[positiveEleTracker] = nums[j]
+             positiveEleTracker++
          }
+         //keep iterating through array
          j++
      }
-     while (zeroPointer < nums.length) {
-         nums[zeroPointer] = 0
-         zeroPointer++
+     console.log(nums);
+     //use the positiveEleTracker to fill the rest of the array with zeroes
+     //fill the rest of the array with zeroes
+     while (positiveEleTracker < nums.length) {
+         nums[positiveEleTracker] = 0
+         positiveEleTracker++
      }
      console.log(nums);
  }
