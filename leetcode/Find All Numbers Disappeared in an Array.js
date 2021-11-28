@@ -4,17 +4,23 @@
  * @return {number[]}
  */
  var findDisappearedNumbers = function(nums) {
-    const max = nums.length;
-    console.log(max);
+     //get the max range meaning it goes from [1,max]
+    const maxRange = nums.length;
+    console.log(maxRange);
+    //array to store the missing numbers
     let res = [];
-    for(let i = 1; i <= max; i++){
+    //iterate from 1 to the range we need
+    for(let i = 1; i <= maxRange; i++){
+        //if the number is not in the array, push it to the array
         let found = false;
-        
+        //iterate through the array to see if the number is in the array
         for(let j = 0; j < nums.length; j++){
             if (i === nums[j]){
+                //if the number is in the array, set found to true
                 found = true;
             }
         }
+        //only push the numbers that are not found
         if (!found){
             res.push(i);
         }
