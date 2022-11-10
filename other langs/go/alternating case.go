@@ -12,18 +12,24 @@ func ToAlternatingCase(str string) string {
 	fmt.Printf("string is: %v\n", str)
 
 	for _, w := range str {
+		fmt.Println("res so far is:", res)
+
 		if !unicode.IsLetter(w) {
-			continue
-		}
-		if unicode.IsSpace(w) {
-			fmt.Println("space", string(w))
-			res = append(res, " ")
-		}
-		if unicode.IsLower(w) {
-			res = append(res, strings.ToUpper(string(w)))
+			fmt.Println("not letter", string(w))
+			res = append(res, string(w))
 		} else {
-			res = append(res, strings.ToLower(string(w)))
+			if unicode.IsSpace(w) {
+				fmt.Println("space", string(w))
+				res = append(res, string(w))
+			}
+			if unicode.IsLower(w) {
+				res = append(res, strings.ToUpper(string(w)))
+			}
+			if unicode.IsUpper(w) {
+				res = append(res, strings.ToLower(string(w)))
+			}
 		}
+
 	}
 	fmt.Println(res)
 	return strings.Join(res, "")
