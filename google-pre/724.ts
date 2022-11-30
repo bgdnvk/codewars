@@ -6,21 +6,21 @@ function pivotIndex(nums: number[]): number {
     
     for(let i = 0; i < nums.length; i++){
         
-        if(i === 0 || i === nums.length-1) {
+        if(i === 0) {
             sumLeft = 0
         } else {
             sumLeft += nums[i-1]
         }
-        console.log("i:", i)
+        // console.log("i:", i)
         for(let j = i+1; j < nums.length; j++) {
-            console.log("-- j:", j)
+            // console.log("-- j:", j)
             sumRight+= nums[j];
             
         }
-        console.log("SL", sumLeft)
-        console.log("SR", sumRight)
-        if(sumLeft === sumRight && i != nums.length-1){
-            console.log("found")
+        // console.log("SL", sumLeft)
+        // console.log("SR", sumRight)
+        if(sumLeft === sumRight){
+            // console.log("found")
             return i;
         }
         sumRight = 0;
