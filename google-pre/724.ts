@@ -1,36 +1,31 @@
 //https://leetcode.com/problems/find-pivot-index/?envType=study-plan&id=level-1
 function pivotIndex(nums: number[]): number {
     
-    let pivot: number = 0;
-    let sumI: number = 0;
-    let flag: boolean = false;
+    let sumLeft: number = 0;
+    let sumRight: number = 0;
     
-    for (let i = 0; i < nums.length; i++){
-        let sumJ: number = 0;
-        if(i === 0) {
-            sumI = 0
+    for(let i = 0; i < nums.length; i++){
+        
+        if(i === 0 || i === nums.length-1) {
+            sumLeft = 0
         } else {
-            sumI+=nums[i]
+            sumLeft += nums[i-1]
+        }
+        console.log("i:", i)
+        for(let j = i+1; j < nums.length; j++) {
+            console.log("-- j:", j)
+            sumRight+= nums[j];
             
         }
-        console.log("i ", i)
-        console.log("sum i ", sumI)
-        for(let j = i + 1; j < nums.length; j++){
-            console.log("-- j", j)
-            console.log("-- j nums:", nums[j])
-            console.log("sum j b4:", j)
-            sumJ += nums[j]
-            console.log("sum j ", sumJ)
-            if(sumI == sumJ) {
-                pivot = i
-                flag = true;
-            }
+        console.log("SL", sumLeft)
+        console.log("SR", sumRight)
+        if(sumLeft === sumRight && i != nums.length-1){
+            console.log("found")
+            return i;
         }
-        sumJ = 0;
+        sumRight = 0;
+        
     }
     
-    if (!flag) {
-        return -1
-    }
-    return pivot
+    return -1
 };
