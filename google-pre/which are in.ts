@@ -21,7 +21,7 @@ function addValue(arr: string[]): WordValue[] {
  return resArr;
 }
 
-function getSubString(w1: string, w2: string): string {
+function checkSubString(w1: string, w2: string): boolean {
  
 }
 
