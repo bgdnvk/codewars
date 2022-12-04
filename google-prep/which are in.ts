@@ -22,8 +22,8 @@ function addValue(arr: string[]): WordValue[] {
 }
 
 function checkSubString(whole: string, sub: string): boolean {
- console.log("whole: ", whole)
- console.log("sub: ", sub)
+//   console.log("whole: ", whole)
+//   console.log("sub: ", sub)
  
  if(whole.length < sub.length){
    return false
@@ -32,13 +32,12 @@ function checkSubString(whole: string, sub: string): boolean {
  let startIndex: number = 0;
  
  for(let i = 0; i < whole.length; i++){
-   console.log(whole[i])
-//     console.log(sub[i])
+//     console.log(whole[i])
    if(whole[i] === sub[0] && i !== whole.length-1 && whole[i+1] === sub[1]){
      startIndex = i;
    }
  }
- console.log("startIndex: ", startIndex)
+//   console.log("startIndex: ", startIndex)
  
  for(let i = 0, j = startIndex; i < sub.length; i++, j++){
 //     console.log(sub[i])
@@ -80,6 +79,20 @@ function getSubStrings(a1: string[], a2: string[]): string[] {
  return subStrings;
 }
 
+//implementing bubble sort
+function orderByValue(arr: WordValue[]): string[] {
+//   console.log(arr.length)
+ 
+ let orderedArr: string[] = [];
+ 
+ for(let i = 0; i < arr.length; i++){
+   console.log(arr[i].word)
+   console.log(arr[i].value)
+ }
+ 
+ return orderedArr
+}
+
 
 
 export function inArray(a1: string[], a2: string[]): string[] {
@@ -93,7 +106,10 @@ export function inArray(a1: string[], a2: string[]): string[] {
  const unordenedSubStrings = getSubStrings(a1, a2)
  //could just: return unordenedSubStrings.sort()
  const unordenedWithValue = addValue(unordenedSubStrings)
+ console.log("unordened w value: ", unordenedWithValue)
+ const res: string[] = orderByValue(unordenedWithValue)
  
  
- return unordenedSubStrings.sort()
+ 
+ return res
 }
