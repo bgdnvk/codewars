@@ -85,9 +85,25 @@ function orderByValue(arr: WordValue[]): string[] {
  
  let orderedArr: string[] = [];
  
- for(let i = 0; i < arr.length; i++){
+ //bubble sort
+ for(let i = 0; i < arr.length - 1; i++){
    console.log(arr[i].word)
-   console.log(arr[i].value)
+//     console.log(arr[i].value)
+   for(let j = 0; j < arr.length - 1 - i; j++){
+     console.log("inside bubble sort", arr[j])
+     if(arr[j].value > arr[j+1].value ){
+       let temp = arr[j+1]
+       arr[j+1] = arr[j]
+       arr[j] = temp
+     }
+   }
+   
+ }
+ console.log("ordered arr with values", arr)
+ 
+ //fill the arr with the values in order
+ for(let i = 0; i < arr.length; i++){
+   orderedArr.push(arr[i].word)
  }
  
  return orderedArr
@@ -103,13 +119,13 @@ export function inArray(a1: string[], a2: string[]): string[] {
 //   console.log(r)
  
 //   console.log(checkSubString("armstrong", "strong"))
+ 
  const unordenedSubStrings = getSubStrings(a1, a2)
  //could just: return unordenedSubStrings.sort()
- const unordenedWithValue = addValue(unordenedSubStrings)
- console.log("unordened w value: ", unordenedWithValue)
- const res: string[] = orderByValue(unordenedWithValue)
+//   const unordenedWithValue = addValue(unordenedSubStrings)
+//   console.log("unordened w value: ", unordenedWithValue)
+//   const res: string[] = orderByValue(unordenedWithValue)
  
- 
- 
- return res
+//   return res
+ return unordenedSubStrings.sort()
 }
