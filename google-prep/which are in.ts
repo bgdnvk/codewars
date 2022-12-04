@@ -41,7 +41,9 @@ function checkSubString(whole: string, sub: string): boolean {
  console.log("startIndex: ", startIndex)
  
  for(let i = 0, j = startIndex; i < sub.length; i++, j++){
-   if(sub[i] !== whole[startIndex]){
+//     console.log(sub[i])
+//     console.log(whole[j])
+   if(sub[i] !== whole[j]){
      return false
    }
  }
@@ -50,22 +52,48 @@ function checkSubString(whole: string, sub: string): boolean {
 }
 
 function getSubStrings(a1: string[], a2: string[]): string[] {
- //a1 is bigger, a2 it's the substrings
+ //a2 is bigger, a1 is where the substrings are
+ let subStrings: string[] = [];
+ 
+ //arr counter to count how many times an element from a1 appears
+ let subCounter: number[] = new Array(a1.length).fill(0);
+ 
  for(let i = 0; i < a2.length; i++){
-   
+   for(let j = 0; j < a1.length; j++){
+     //check if there's a substring
+     if(checkSubString(a2[i], a1[j])) {
+       subCounter[j] += 1
+       }
+   }
  }
- return [""]
+ 
+ //insert the non dupe elements into the array to return
+ //the length is the same as a1
+ for(let i = 0; i < subCounter.length; i++){
+   if (subCounter[i] >= 1){
+     subStrings.push(a1[i])
+   }
+ }
+ 
+ console.log(subCounter)
+ console.log("unordened subS: ", subStrings);
+ return subStrings;
 }
 
+
+
 export function inArray(a1: string[], a2: string[]): string[] {
- let w: WordValue = {word: "hi", value:2}
- console.log(w)
+//   let w: WordValue = {word: "hi", value:2}
+//   console.log(w)
  
- let r = addValue(a1);
- console.log(r)
+//   let r = addValue(a1);
+//   console.log(r)
  
- console.log(checkSubString("harp", "arp"))
+//   console.log(checkSubString("armstrong", "strong"))
+ const unordenedSubStrings = getSubStrings(a1, a2)
+ //could just: return unordenedSubStrings.sort()
+ const unordenedWithValue = addValue(unordenedSubStrings)
  
  
- return [""]
+ return unordenedSubStrings.sort()
 }
