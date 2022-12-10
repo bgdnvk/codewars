@@ -19,9 +19,8 @@ function racecar(target: number): number {
     }
 
     while(myDir.position !== target) {
-        console.log("p", myDir.position)
-        console.log("t", target)
-        if(myDir.position< target){
+        console.log("my dir", myDir)
+        if(myDir.position < target){
             myDir = drive(myDir.instructions,'A', myDir.position, myDir.speed)
         } else {
             myDir = drive(myDir.instructions,'R', myDir.position, myDir.speed)
@@ -34,22 +33,23 @@ function racecar(target: number): number {
 function drive(instructions: string[], w: string, position: number, speed: number): Directions {
     switch(w) {
         case 'A': 
-            speed *= 2
             position += speed
+            speed *= 2
             instructions.push('A')
             break
         case 'R':
-            if(speed > 0) {
-                speed = -1
+            if(speed > 0 && instructions[instructions.length-1] === 'A') {
+                speed -=1
             } else {
                 speed = 1
+                position = position-1
             }
             instructions.push('R')
             break
     }
-
+    
     let newDir = {
-        instructions,
+        instructions,    
         position,
         speed
     }
