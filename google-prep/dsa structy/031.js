@@ -14,11 +14,14 @@ class Node {
     console.log(sum1, sum2)
     let sum = sum1+sum2
     let sumList = newList(sum)
+    console.log(sumList)
     let res = reverseList(sumList)
     console.log('res is', res)
+    return res
   };
   
   const reverseList = (head) => {
+    console.log('reverseList')
     let curr = head 
     let prev = null
     while(curr !== null){
@@ -33,6 +36,7 @@ class Node {
   }
   
   const getNum = (head) => {
+    console.log('getNum')
     let curr = head
     let arr = []
     while(curr !== null){
@@ -45,14 +49,14 @@ class Node {
   }
   
   const newList = (sum) => {
-    console.log(sum)
+    console.log('newList sum: ',sum)
     let s = sum.toString()
     let head = new Node(0)
     let curr = head
     for(let i = 0; i < s.length; i++){
       console.log(curr)
       curr.val = parseInt(s[i]) 
-      curr.next = curr
+      curr= curr.next
     }
     console.log('returning head')
     console.log(head)
