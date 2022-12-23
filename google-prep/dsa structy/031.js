@@ -55,7 +55,9 @@ class Node {
     let curr = head
     for(let i = 0; i < s.length; i++){
       console.log(curr)
+      let n = new Node(parseInt(s[i]))
       curr.val = parseInt(s[i]) 
+      curr.next = n
       curr= curr.next
     }
     console.log('returning head')
