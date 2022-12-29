@@ -21,6 +21,21 @@ const treeSum = (root) => {
     }
     return sum
   };
+
+  // class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+// const treeSum = (root) => {
+//   if(!root) return 0
+//   const L = treeSum(root.left) 
+//   const R = treeSum(root.right) 
+//   return root.val + L + R
+// };
   
   module.exports = {
     treeSum,
