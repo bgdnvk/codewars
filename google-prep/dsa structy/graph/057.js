@@ -25,16 +25,19 @@ const undirectedPath = (edges, nodeA, nodeB) => {
     while(stack.length > 0){
       let curr = stack.pop()
       if(curr === dst) return true
-      if(visited.has(curr)) return false
+      //if(visited.has(curr)) return false
       visited.add(curr)
       
       console.log(visited)
+      console.log('stack: ')
       console.log(stack)
+      console.log('curr:')
       console.log(curr)
+      console.log('graph curr')
       console.log(graph[curr])
       for(let n of graph[curr]){
         console.log(n)
-        stack.push(n)
+        if(!visited.has(n))stack.push(n) 
       }
     }
     return false
