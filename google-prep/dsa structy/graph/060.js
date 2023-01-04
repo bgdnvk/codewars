@@ -1,6 +1,9 @@
 const shortestPath = (edges, nodeA, nodeB) => {
+    let visited = new Set()
     let graph = adj(edges)
     console.log(graph)
+    let res = bfsHelper(graph, nodeA, nodeB, visited)
+    return res
   };
   
   const adj = (edges) => {
@@ -15,7 +18,24 @@ const shortestPath = (edges, nodeA, nodeB) => {
     return graph
   }
   
+  const bfsHelper = (graph, node, target, visited) => {
+    let queue = [[node, 0]]
+    while(queue.length > 0){
+      let [curr, distance] = queue.shift() 
+      if(curr === target) return distance
+      
+      
+      visited.add(curr)
+      for(let neighbor of graph[curr]) {
+        if(!visited.has(neighbor)) {
+      //    visited.add(neighbor) same result
+          queue.push([neighbor, distance+1])
+        }
+      }
+    }
+    return -1
+  }
+  
   module.exports = {
     shortestPath,
   };
-  
