@@ -1,31 +1,34 @@
 const connectedComponentsCount = (graph) => {
-    console.log(graph)
-    const stack = []
-    const set = new Set()
-    let count = 0
+  console.log(graph)
+  const visited = new Set()
+  let count = 0
+  
+  for(let node in graph) {
+    if(dfs( Number(node), visited, graph)) count += 1
+  }
+  
+  return count
+};
+
+const dfs = (node, visited, graph) => {
+  console.log('vidited', visited)
+  
+  if(visited.has(node)) return false
+  
+  const stack = [node]
+  
+  while(stack.length > 0){
+    let curr = stack.pop() 
     
-    for(let i in graph){
-      stack.push(Number(i))
-      if(!set.has(Number(i))) count += 1
-      while(stack.length > 0) {
-        let curr = stack.pop()
-        set.add(curr)
-        console.log(set)
-        console.log(curr)
-        for(let neighbor of graph[i]) {
-          console.log('neighbor', neighbor)
-          if(!set.has(neighbor)){
-            stack.push(neighbor)
-          }
-        }
-        console.log('stack', stack)
-      }
+    visited.add(curr)
+    for(let neighbor of graph[curr]){
+      if(!visited.has(neighbor)) stack.push(neighbor)
     }
-    return count
-  };
-  
-  
-  module.exports = {
-    connectedComponentsCount,
-  };
-  
+  }
+  return true
+}
+
+
+module.exports = {
+  connectedComponentsCount,
+};
