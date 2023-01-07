@@ -12,7 +12,6 @@ const longestPath = (graph) => {
   function dfs(graph, node, visited) {
     let distance = 1
     if(visited.has(node)) return 0
-    visited.add(graph[node])
     if(graph[node].length === 0) return 0
     for(let neighbor of graph[node]) {
       distance += dfs(graph, neighbor, visited)
