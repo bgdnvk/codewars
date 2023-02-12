@@ -1,5 +1,6 @@
 //https://leetcode.com/problems/longest-palindromic-substring/
 function longestPalindrome(s: string): string {
+    
     if(s.length === 1) return s[0]
     if(s.length === 2) {
         if(s[0] !== s[1]) return s[0]
@@ -23,7 +24,6 @@ function longestPalindrome(s: string): string {
                     max = wordArr.length
                     palindrome = wordArr.join('')
                 }
-                // pals.push(wordArr.join(''))
             }
         }
 
@@ -31,24 +31,13 @@ function longestPalindrome(s: string): string {
 
     if(max === 0) return s[0]
 
+    // console.log(palindrome)
     return palindrome
 };
 
 function checkPalindrome(s: string[]) {
-    const curr = s.join('')
-    const reversed = reverseArr(s)
-    // console.log('reversed:', reversed)
-    // console.log('curr:', curr)
-    if(reversed === curr) return true
-    return false
-}
-
-function reverseArr(s: string[]): string {
-    const arr:string[] = []
-
-    for(let i = s.length-1; i >= 0; i--){
-        arr.push(s[i])
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] !== s[s.length-(i+1)]) return false
     }
-
-    return arr.join('')
+    return true 
 }
