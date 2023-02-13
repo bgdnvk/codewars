@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/zigzag-conversion/
+//https://leetcode.com/problems/zigzag-conversion/solutions/3182577/js-ts-with-comments/
 function convert(s: string, numRows: number): string {
 
     // console.log(s)
