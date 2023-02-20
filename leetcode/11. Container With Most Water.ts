@@ -2,20 +2,20 @@
 function maxArea(height: number[]): number {
 
     let max = 0
-    for(let i = 0; i < height.length; i++) {
-        for(let j = 0; j < height.length; j++) {
-            //height
-            const h = Math.min(height[i], height[j])
-            //distance
-            const d = j-i
-            const prod = h * d 
-            if(max < prod ) {
-                // console.log('found')
-                // console.log('prod', prod)
-                // console.log('i', i)
-                // console.log('j', j)
-                max = prod
-            }
+    let left = 0
+    let right = height.length-1
+
+    while(left < right) {
+        const h = Math.min(height[left], height[right])
+        const d = right - left
+        const area = h*d
+
+        if(max < area) max = area
+
+        if(height[left] <= height[right]) {
+            left++
+        } else {
+            right--
         }
     }
 
