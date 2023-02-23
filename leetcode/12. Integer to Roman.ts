@@ -5,9 +5,9 @@ function intToRoman(num: number): string {
     const arr = str.split('').map(Number).reverse()
     // console.log(arr)
 
-    const resArr = []
+    const resArr: string[] = []
     for(let i = 0; i < arr.length; i++) {
-        let temp = romanNum(arr[i], i)
+        let temp: string = romanNum(arr[i], i)
         resArr.push(temp)
     }
     // console.log('resArr', resArr)
