@@ -16,8 +16,6 @@ function intToRoman(num: number): string {
 };
 
 function romanNum(num: number, position: number): string {
-
-    // console.log('curr num', num)
     
     let res = ''
 
@@ -65,7 +63,7 @@ function romanNum(num: number, position: number): string {
         break
 
         case 2:
-        if(num < 4) {
+        if(num <= 4) {
             if(num === 4) {
                 res = 'CD'
             } else {
