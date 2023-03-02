@@ -36,6 +36,7 @@ function threeSum(nums: number[]): number[][] {
         console.log('sum', sum)
         for(let ele of v) {
             if(sum+ele === 0) {
+                //@ts-ignore
                 res.push([k1,k2,ele])
             }
         }
