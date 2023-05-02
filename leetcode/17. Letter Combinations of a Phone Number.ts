@@ -34,3 +34,36 @@ function letterCombinations(digits: string): string[] {
     return res;
 }
 
+//optimized version
+// function letterCombinations(digits: string): string[] {
+//     if (!digits) {
+//         return [];
+//     }
+
+//     // build k:v pair object to map digit -> letters
+//     const d: Record<string, string> = {
+//         '2': 'abc',
+//         '3': 'def',
+//         '4': 'ghi',
+//         '5': 'jkl',
+//         '6': 'mno',
+//         '7': 'pqrs',
+//         '8': 'tuv',
+//         '9': 'wxyz'
+//     };
+
+//     const res: string[] = [];
+//     const stack: [number, string][] = [[0, ""]];
+//     while (stack.length) {
+//         const [i, combo] = stack.shift()!;
+//         if (i === digits.length) {
+//             res.push(combo);
+//         } else {
+//             for (const child of d[digits[i]]) {
+//                 stack.push([i + 1, combo + child]);
+//             }
+//         }
+//     }
+//     return res;
+// }
+
