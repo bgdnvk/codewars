@@ -1,38 +1,36 @@
 //https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
 //https://leetcode.com/problems/letter-combinations-of-a-phone-number/solutions/1022553/python-3-approaches-iterative-dfs-bfs-recursive-visuals-explanation/?orderBy=most_votes
 function letterCombinations(digits: string): string[] {
-
-    if(digits.length === 0) return []
-
-    const map = {'2':"abc",'3':"def",'4':"ghi",'5':"jkl",
-     '6':"mno",'7':"pqrs",'8':"tuv",'9':"wxyz"}
-
-    const numbers = digits.split('')
-    // console.log(numbers)
-    const first = map[numbers[0]].split('')
-
-    if(digits.length === 1) return first
-
-    const stack = []
-    const res = []
-    // console.log(first)
-
-    for(let i = 1; i < numbers.length; i++) {
-        let letters = map[numbers[i]]
-        for(let w of letters) {
-            stack.push(w)
-        }
-    }
-    console.log(stack)
-
-    for(let i = 0; i < stack.length; i++) {
-
-        for(let j = 0; j < first.length; j++){
-            res.push(first[j]+ ''+stack[i])
-        }
+    if (!digits) {
+        return [];
     }
 
-    // console.log(res)
+    // build k:v pair object to map digit -> letters
+    const d: {[key: string]: string} = {
+        '2': 'abc',
+        '3': 'def',
+        '4': 'ghi',
+        '5': 'jkl',
+        '6': 'mno',
+        '7': 'pqrs',
+        '8': 'tuv',
+        '9': 'wxyz'
+    };
 
-    return res
-};
+    const res: string[] = [];
+    const stack: [number, string][] = [[0, ""]];
+    while (stack.length > 0) {
+        const [i, combo] = stack.shift()!;
+        if (i === digits.length) {
+            res.push(combo);
+        } else {
+            const nextDigit = digits[i];
+            const children = d[nextDigit];
+            for (const child of children) {
+                stack.push([i+1, combo+child]);
+            }
+        }
+    }
+    return res;
+}
+
