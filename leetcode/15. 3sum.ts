@@ -1,5 +1,6 @@
+//https://leetcode.com/problems/3sum/
 function threeSum(nums: number[]): number[][] {
-    const res  = []
+    const res: number[][] = []
     const ordered = nums.sort((a, b) => a-b)
 
     for(let i = 0; i < ordered.length-2; i++) {
