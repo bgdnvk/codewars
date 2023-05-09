@@ -30,3 +30,15 @@ function groupAnagrams(strs: string[]): string[][] {
 
     return res
 };
+
+
+// Solution using map with reduce
+function groupAnagrams2(strs: string[]): string[][] {
+    const wordsMap = strs.reduce((map, str) => {
+        const sortedChars = [...str].sort().join('');
+        map[sortedChars] = (map[sortedChars] || []).concat(str);
+        return map;
+    }, {});
+
+    return Object.values(wordsMap);
+}
