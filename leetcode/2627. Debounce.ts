@@ -1,4 +1,5 @@
 //https://leetcode.com/problems/debounce/description/
+//@ts-ignore
 type F = (...p: any[]) => any
 
 function debounce(fn: F, t: number): F {
