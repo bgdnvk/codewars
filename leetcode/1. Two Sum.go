@@ -25,3 +25,15 @@ func twoSum(nums []int, target int) []int {
 
 	return slice
 }
+
+func twoSum(nums []int, target int) []int {
+	m := make(map[int]int)
+
+	for i := 0; i < len(nums); i++ {
+		if indx, ok := m[target-nums[i]]; ok {
+			return []int{indx, i}
+		}
+		m[nums[i]] = i
+	}
+	return []int{}
+}
