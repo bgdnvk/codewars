@@ -1,1 +1,14 @@
 /node_modules
+
+# Compiled files
+/algos/rust/target/
+/target/
+
+# Editor backup files
+**/*.rs.bk
+
+# Environment variables
+.env
+
+# Dependency lock file (uncomment for libraries)
+# Cargo.lock
